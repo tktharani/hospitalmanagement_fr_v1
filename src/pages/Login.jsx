@@ -26,7 +26,7 @@ const Login = () => {
              password:formData.password
            }
          
-           fetch(`http://localhost:8080/register/check?username=${formData.username}&password=${formData.password}`)
+           fetch(`http://localhost:8080/registers/check?username=${formData.username}&password=${formData.password}`)
            .then((response)=>{
             if(!response.ok){
               throw new Error("Failed to fetch data");
@@ -61,9 +61,9 @@ const Login = () => {
             <label className="p-4">Password</label>
             <input type="password" name="password" value={formData.password} onChange={handleChange}></input><br></br>
 
-            <button type="button" className="btn btn-success mx-4 px-3">Login</button>
+            <button  className="btn btn-success mx-4 px-3">Login</button>
 
-            <Link to="/register" className="color:red;">Create New Account</Link>
+            <Link to="/register" className="">Create New Account</Link>
         </form>   
         <div className="container">
            {Array.isArray(formData)&& formData.map((formData)=>(

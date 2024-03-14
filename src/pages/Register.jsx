@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
+
 
 
 const Register = () => {
     const [formData , setFormData] = useState({
         firstname: "",
         lastname: "",
-        email:"",
         username:"",
         password:""
       })
@@ -26,12 +27,11 @@ const Register = () => {
            const Register ={
              firstname:formData.firstname,
              lastname:formData.lastname,
-             email:formData.email,
              username:formData.username,
              password:formData.password
            }
          
-           fetch("http://localhost:8080/register/add",{
+           fetch("http://localhost:8080/registers/add",{
              headers:{
                "Content-Type":"application/json"
              },
@@ -52,18 +52,13 @@ const Register = () => {
             <input type="text" name="firstname" value={formData.firstname} onChange={handleChange}></input><br></br>
             <label  className='text-white p-2'>Lastname</label>
             <input type="text" name="lastname" value={formData.lastname} onChange={handleChange}></input><br></br>
-
-            <label className='text-white p-2 m-2'>Email Id</label>
-            <input type="email" name="email"  value={formData.email} onChange={handleChange}></input><br></br>
-    
-            
             <label className='text-white p-2'>UserName</label>
             <input type="text" name="username" value={formData.username} onChange={handleChange}></input><br></br>
              
             <label className='text-white p-2'>Password</label>
             <input type="password" name="password" value={formData.password} onChange={handleChange}></input><br></br>
 
-            <button type="button" class="btn btn-success m-2">Register</button>
+            <button  className="btn btn-success m-2">Register</button>
 
         </form>
       </div>
